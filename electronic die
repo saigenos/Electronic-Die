@@ -1,0 +1,31 @@
+/* Electronic Die
+By Teresa Le
+An electronic die that "rolls" a random number when the
+push button is pressed. */
+
+
+const int buttonPin = 13; // Push button constant
+
+void setup() {
+  // LED pin definitions
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+
+  // Push button definition
+  pinMode(buttonPin, INPUT);
+
+}
+
+void loop() {
+  int buttonState; // Define variables to hold pushbutton states
+
+  buttonState = digitalRead(buttonPin); //
+
+  {
+    }
+  }
