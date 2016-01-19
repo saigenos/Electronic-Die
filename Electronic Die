@@ -25,7 +25,15 @@ void loop() {
   int buttonState; // Define variables to hold pushbutton states
 
   buttonState = digitalRead(buttonPin); //
-
-  {
+  // If the button is being pushed..
+  if (buttonState == LOW && buttonState != HIGH)
+   {
+    // Generate a number from 1 to 6 
+    int randNumber = random(1, 6);
+     
+    // Light pinmodes 1-randNumber
+    while(randNumber > 0) {
+      digitalWrite(randNumber--, HIGH);
     }
+   }
   }
