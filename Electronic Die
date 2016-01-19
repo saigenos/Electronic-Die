@@ -29,7 +29,7 @@ void loop() {
   if (buttonState == LOW && buttonState != HIGH)
    {
     // Generate a number from 1 to 6 
-    int randNumber = random(1, 7);
+    int randNumber = random(1, 8);
      
     // Light pinmodes 1-randNumber
     while(randNumber > 0) {
