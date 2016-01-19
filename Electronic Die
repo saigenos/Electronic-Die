@@ -3,8 +3,8 @@ By Teresa Le
 An electronic die that "rolls" a random number when the
 push button is pressed. */
 
-
-const int buttonPin = 13; // Push button constant
+// Push button constant
+const int buttonPin = 13;
 
 void setup() {
   // LED pin definitions
@@ -21,19 +21,23 @@ void setup() {
 
 }
 
-void loop() {
-  int buttonState; // Define variables to hold pushbutton states
+void loop() 
+{
+  // Define variables to hold pushbutton states
+  int buttonState;
+  // Read current pushbutton state 
+  buttonState = digitalRead(buttonPin); 
 
-  buttonState = digitalRead(buttonPin); //
   // If the button is being pushed..
-  if (buttonState == LOW && buttonState != HIGH)
-   {
+  if (buttonState == LOW)
+  {
     // Generate a number from 1 to 6 
     int randNumber = random(1, 8);
      
-    // Light pinmodes 1-randNumber
+    // Light pins 1-randNumber
     while(randNumber > 0) {
       digitalWrite(randNumber--, HIGH);
-    }
    }
-  }
+   }
+   }
+
