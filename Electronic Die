@@ -6,38 +6,118 @@ push button is pressed. */
 // Push button constant
 const int buttonPin = 13;
 
+// Define variable to hold pushbutton state
+int buttonState;
+
+// Set randum number to long
+long ran;
+
+// Set delay time to 1 second
+int delaytime = 1000;
+
+// Set LED variables with pins
+int pinTR = 7;
+int pinTL = 2;
+int pinBR = 5;
+int pinBL = 4;
+int pinMR = 6;
+int pinML = 3;
+int pinC = 1;
+
+
+
 void setup() {
   // LED pin definitions
-  pinMode(1, OUTPUT);
-  pinMode(2, OUTPUT);
-  pinMode(3, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
+  pinMode(pinTR, OUTPUT);
+  pinMode(pinTL, OUTPUT);
+  pinMode(pinBR, OUTPUT);
+  pinMode(pinBL, OUTPUT);
+  pinMode(pinMR, OUTPUT);
+  pinMode(pinML, OUTPUT);
+  pinMode(pinC, OUTPUT);
 
   // Push button definition
   pinMode(buttonPin, INPUT);
 
+  randomSeed(analogRead(0));
 }
 
 void loop() 
 {
-  // Define variables to hold pushbutton states
-  int buttonState;
   // Read current pushbutton state 
   buttonState = digitalRead(buttonPin); 
 
   // If the button is being pushed..
-  if (buttonState == LOW)
+  if (buttonState == HIGH)
   {
     // Generate a number from 1 to 6 
-    int randNumber = random(1, 8);
-     
-    // Light pins 1-randNumber
-    while(randNumber > 0) {
-      digitalWrite(randNumber--, HIGH);
-   }
-   }
-   }
+    ran = random(1, 6);
 
+    // Light #1
+    if (ran == 1)
+    {
+      digitalWrite(pinC, HIGH);
+      delay(delaytime);
+    }
+
+    // Light #2
+    if (ran == 2)
+    {
+      digitalWrite(pinMR, HIGH);
+      digitalWrite(pinML, HIGH);
+      delay(delaytime);
+      }
+
+    // Light #3
+    if (ran == 3);
+    {
+      digitalWrite(pinTL, HIGH);
+      digitalWrite(pinC, HIGH);
+      digitalWrite(pinBR, HIGH);
+      delay(delaytime);
+      }
+
+     // Light #4
+    if (ran == 4);
+    {
+      digitalWrite(pinTR, HIGH);
+      digitalWrite(pinTL, HIGH);
+      digitalWrite(pinBR, HIGH);
+      digitalWrite(pinBL, HIGH);
+      delay(delaytime);
+      }
+
+     // Light #5
+    if (ran == 5);
+    {
+      digitalWrite(pinC, HIGH);
+      digitalWrite(pinTR, HIGH);
+      digitalWrite(pinTL, HIGH);
+      digitalWrite(pinBR, HIGH);
+      digitalWrite(pinBL, HIGH);
+      delay(delaytime);
+      }
+
+     // Light #6
+    if (ran == 6);
+     {
+      digitalWrite(pinTR, HIGH);
+      digitalWrite(pinMR, HIGH);
+      digitalWrite(pinBR, HIGH);
+      digitalWrite(pinTL, HIGH);
+      digitalWrite(pinML, HIGH);
+      digitalWrite(pinBL, HIGH);
+      delay(delaytime);
+      }
+  }
+
+  // Turn all LEDs off
+  digitalWrite(pinTR, LOW);
+  digitalWrite(pinMR, LOW);
+  digitalWrite(pinBR, LOW);
+  digitalWrite(pinTL, LOW);
+  digitalWrite(pinML, LOW);
+  digitalWrite(pinBL, LOW);
+  digitalWrite(pinC, LOW);
+}
+   
